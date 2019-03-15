@@ -55,10 +55,17 @@ setup_cpp_tdd() {
     # google benchmark
 }
 
+setup_tools() {
+    TOOLS_HOME=~/.devtools
+    mkdir $TOOLS_HOME
+    clone_repo 'https://github.com/brendangregg/FlameGraph' $TOOLS_HOME/FlameGraph
+}
+
 
 
 #setup_common
 #setup_ssh
 #setup_vim
 #setup_cpp_tdd
+#setup_tools
 
