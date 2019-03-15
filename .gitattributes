@@ -1,0 +1,6 @@
+*.so binary
+*.a binary
+*.o binary
+*.c filter=indent
+*.cpp filter=indent
+*.h filter=indent

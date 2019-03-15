@@ -12,7 +12,7 @@ if [[ $ID != 'manjaro' || $ID_LIKE != 'arch' ]]; then
 fi
 
 if [[ $ID = 'manjaro' ]]; then
-    devel=(base-devel gcc gdb ninja make cmake perf)
+    devel=(base-devel gcc gdb ninja make cmake perf kdiff3)
     editor=(vim)
     utils=(sudo zsh tmux texlive-most ripgrep)
 
