@@ -14,7 +14,7 @@ fi
 if [[ $ID = 'manjaro' ]]; then
     devel=(base-devel gcc gdb ninja make cmake perf kdiff3)
     editor=(vim)
-    utils=(sudo zsh tmux texlive-most ripgrep)
+    utils=(sudo zsh tmux tmuxp texlive-most ripgrep xclip)
 
     yes | sudo pacman -Sy --needed $devel $editor $utils
 fi
