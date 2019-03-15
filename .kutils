@@ -1,0 +1,52 @@
+#!/bin/zsh
+#
+# Zsh utilities
+# Author: kpanic
+#
+
+TOOLS_HOME=~/.devtools
+
+dump_mem() {
+    sum=0
+    res=`ps -eo size,pid,user,command --sort size`
+    for i in `echo $res | awk '{ hr=$1/1024 ; if (hr > 0) printf("%13.2f",hr) }'`; do
+    x=`echo $res | awk '{ hr=$1/1024 ; if (hr > 0) printf("%13.2f",hr) }'`
+    for i in x; do
+        echo $i
+        # sum=$(($sum+$i))
+    done
+    echo "summary = $sum"
+    echo $res | awk '{ hr=$1/1024 ; printf("%13.2f Mb ",hr) } { for ( x=4 ; x<=NF ; x++ ) { printf("%s ",$x) } print "" }' | cut -d "" -f2 | cut -d "-" -f1
+    echo $res | awk '{ hr=$1/1024 ; printf("%13.2f Mb ",hr) } { for ( x=4 ; x<=NF ; x++ ) { printf("%s ",$x) } print   "" }'
+}
+
+# weather
+weather() {
+    curl http://wttr.in/$1
+}
+
+# aliases
+alias xclip='xclip -selection clipboard'
+alias vclip='xclip -selection clipboard -o'
+alias pwdx='pwd | tr -d "\n" | xclip'
+alias free='free -h'
+alias py='python3'
+alias sgrep='grep -rnI'
+alias tatt='tmux attach -t'
+
+alias -g BG='& exit'
+alias -g C='|wc -l'
+alias -g G='|grep'
+alias -g H='|head'
+alias -g Hl=' --help |& less -r'
+alias -g K='|keep'
+alias -g L='|less'
+alias -g LL='|& less -r'
+alias -g M='|most'
+alias -g N='&>/dev/null'
+alias -g R='| tr A-z N-za-m'
+alias -g SL='| sort | less'
+alias -g S='| sort'
+alias -g T='|tail'
+alias -g V='| vim -'
+
