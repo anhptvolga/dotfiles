@@ -59,6 +59,13 @@ setup_tools() {
     TOOLS_HOME=~/.devtools
     mkdir $TOOLS_HOME
     clone_repo 'https://github.com/brendangregg/FlameGraph' $TOOLS_HOME/FlameGraph
+    # get .gdbinit file and customize
+    wget -O ~/.gdbinit https://raw.githubusercontent.com/gdbinit/Gdbinit/master/gdbinit
+    echo 'set $SHOWOBJECTIVEC = 0
+set $SHOWCPUREGISTERS = 0
+set $SHOWREGCHANGES = 0
+set print pretty on'
+    > ~/.gdbinit.local
 }
 
 
