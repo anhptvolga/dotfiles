@@ -7,7 +7,31 @@ filetype plugin indent on
 """ call minpac#clean()
 packadd minpac
 call minpac#init()
-call minpac#add('junegunn/fzf') " fuzzy file finder
+""" plugins here
+"""""" coding
+"call minpac#add('w0rp/ale')
+call minpac#add('lervag/vimtex')    " support latex
+call minpac#add('neoclide/coc.nvim')
+call minpac#add('Valloric/YouCompleteMe')
+call minpac#add('google/vim-maktaba')
+call minpac#add('google/vim-glaive')
+call minpac#add('google/vim-codefmt')
+
+call minpac#add('scrooloose/nerdtree')
+call minpac#add('Xuyuanp/nerdtree-git-plugin')
+call minpac#add('majutsushi/tagbar')
+
+call minpac#add('vim-scripts/mru.vim')
+call minpac#add('terryma/vim-multiple-cursors')
+call minpac#add('junegunn/fzf.vim') " fuzzy finder
+call minpac#add('ctrlpvim/ctrlp.vim')
+call minpac#add('airblade/vim-gitgutter') " git support
+call minpac#add('morhetz/gruvbox') " color schema
+call minpac#add('tpope/vim-dispatch')
+call minpac#add('tpope/vim-unimpaired')
+"""""" utilities
+call minpac#add('tomtom/tcomment_vim')
+call minpac#add('junegunn/goyo.vim')
 
 "set encoding
 set encoding=utf-8
