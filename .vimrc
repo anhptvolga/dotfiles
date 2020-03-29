@@ -1,37 +1,57 @@
 filetype off
 filetype plugin indent on
 
-" minpac
-""" call minpac#add('repo', {'type', 'opt'})
-""" call minpac#update()
-""" call minpac#clean()
-packadd minpac
-call minpac#init()
-""" plugins here
-"""""" coding
-"call minpac#add('w0rp/ale')
-call minpac#add('lervag/vimtex')    " support latex
-call minpac#add('neoclide/coc.nvim')
-call minpac#add('Valloric/YouCompleteMe')
-call minpac#add('google/vim-maktaba')
-call minpac#add('google/vim-glaive')
-call minpac#add('google/vim-codefmt')
+call plug#begin('~/.vim/plugged')
 
-call minpac#add('scrooloose/nerdtree')
-call minpac#add('Xuyuanp/nerdtree-git-plugin')
-call minpac#add('majutsushi/tagbar')
+""" Tools
 
-call minpac#add('vim-scripts/mru.vim')
-call minpac#add('terryma/vim-multiple-cursors')
-call minpac#add('junegunn/fzf.vim') " fuzzy finder
-call minpac#add('ctrlpvim/ctrlp.vim')
-call minpac#add('airblade/vim-gitgutter') " git support
-call minpac#add('morhetz/gruvbox') " color schema
-call minpac#add('tpope/vim-dispatch')
-call minpac#add('tpope/vim-unimpaired')
-"""""" utilities
-call minpac#add('tomtom/tcomment_vim')
-call minpac#add('junegunn/goyo.vim')
+Plug 'godlygeek/tabular'                                                          " Text filtering and alignment
+Plug 'yegappan/mru'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'scrooloose/nerdtree', {'on':['NERDTreeToggle', 'NERDTreeInit', 'NERDTree']} " File manager
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-eunuch'                                                           " Helpers for UNIX
+Plug 'romainl/vim-cool'                                                           " Search highlight more useful.
+Plug 'junegunn/vim-peekaboo'                                                      " Peek content of the registers
+
+""" Code
+
+Plug 'airblade/vim-gitgutter'
+
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'google/vim-maktaba'
+Plug 'google/vim-glaive'
+Plug 'google/vim-codefmt'
+Plug 'majutsushi/tagbar'
+
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-surround'
+
+Plug 'jiangmiao/auto-pairs'
+
+Plug 'lervag/vimtex'
+Plug 'plasticboy/vim-markdown'
+
+Plug 'honza/vim-snippets'
+
+Plug 'elzr/vim-json'
+
+" Elixir
+Plug 'elixir-editors/vim-elixir'
+" Plug 'slashmili/alchemist.vim'
+" Plug 'c-brenn/phoenix.vim'
+" Plug 'tpope/vim-projectionist'
+
+""" Themes
+
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
+
+call plug#end()
+
 
 "set encoding
 set encoding=utf-8
@@ -64,8 +84,9 @@ set foldmethod=indent   "fold based on indent
 set foldnestmax=33       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 
-set wildmode=list:longest   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+set wildmode=full
+" set wildmode=list:longest   "make cmdline tab completion similar to bash
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 
 set formatoptions-=o "dont continue comments when pushing o/O
@@ -75,8 +96,8 @@ set scrolloff=3
 set sidescrolloff=7
 set sidescroll=1
 
-"turn on syntax highlighting
-let python_highlight_all = 1
+syntax on
+
 
 "some stuff to get the mouse going in term
 set mouse=a
@@ -93,22 +114,46 @@ set clipboard=unnamed
 set ignorecase
 set smartcase
 
-"you complete me settings
-let g:ycm_python_interpreter_path = ''
-let g:ycm_python_sys_path = []
-let g:ycm_extra_conf_vim_data = [
-  \  'g:ycm_python_interpreter_path',
-  \  'g:ycm_python_sys_path'
-  \]
 
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'component': {
-      \   'readonly': '%{&readonly?"":""}',
-      \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
-      \ }
+colorscheme onehalflight
+" let g:airline_theme='onehalfdark'
+" let g:lightline.colorscheme='onehalfdark'
+" let g:lightline = {
+"       \ 'colorscheme': 'wombat',
+"       \ 'component': {
+"       \   'readonly': '%{&readonly?"":""}',
+"       \ },
+"       \ 'separator': { 'left': '', 'right': '' },
+"       \ 'subseparator': { 'left': '', 'right': '' }
+"       \ }
+
+" pear-tree
+"
+
+" let g:pear_tree_ft_disabled = []
+" " Pair expansion is dot-repeatable by default:
+" let g:pear_tree_repeatable_expand = 0
+" " Smart pairs are disabled by default:
+" let g:pear_tree_smart_openers = 1
+" let g:pear_tree_smart_closers = 1
+" let g:pear_tree_smart_backspace = 1
+" " If enabled, smart pair functions timeout after 60ms:
+" " let g:pear_tree_timeout = 60
+" " Automatically map <BS>, <CR>, and <Esc>
+" let g:pear_tree_map_special_keys = 0
+" " Default mappings:
+" imap <BS> <Plug>(PearTreeBackspace)
+" imap <CR> <Plug>(PearTreeExpand)
+" " imap <Esc> <Plug>(PearTreeFinishExpansion)
+" " Pear Tree also makes <Plug> mappings for each opening and closing string.
+" "     :help <Plug>(PearTreeOpener)
+" "     :help <Plug>(PearTreeCloser)
+" " Not mapped by default:
+" " <Plug>(PearTreeSpace)
+" " <Plug>(PearTreeJump)
+" " <Plug>(PearTreeExpandOne)
+" " <Plug>(PearTreeJNR)
+
 
 "plantuml conf
 let g:plantuml_executable_script = "$HOME/.vim/plantuml/uml.sh"
@@ -125,13 +170,9 @@ let g:gist_browser_command = 'sensible-browser %URL%'
 
 "add new words (via zg) here
 setlocal spellfile+=~/.vim/spell/en.utf-8.add
-
-"make table-mode tables github-markdown compat
-let g:table_mode_corner="|"
-autocmd Filetype markdown TableModeEnable
-
 "syntastic settings
 let syntastic_stl_format = '[Syntax: %E{line:%fe }%W{#W:%w}%B{ }%E{#E:%e}]'
+let g:ctrlp_user_command = 'fd --type f --hidden --exclude .git'
 
 "nerdtree settings
 let g:NERDTreeMouseMode = 2
@@ -170,6 +211,73 @@ let g:tex_flavor = "latex"
 "
 " Also, this installs to /usr/share/vim/vimfiles, which may not be in
 " your runtime path (RTP). Be sure to add it too, e.g:
-set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
+" set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
 "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+vmap '' :w !pbcopy<CR><CR>
+
+autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
+autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
+
+let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
+let g:alchemist_tag_disable = 1
+let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
+
+
+" Status line
+" Automatically change the statusline color depending on mode
+function! ChangeStatuslineColor()
+    let l:m = mode()
+  if (m =~# '\v(n|no)')
+    exe 'hi! StatusLine ctermfg=008'
+  elseif (m =~# '\v(v|V)' || m ==# '\<C-V>' || m ==# 'Terminal')
+    exe 'hi! StatusLine ctermfg=005'
+  elseif (m ==# 'i')
+    exe 'hi! StatusLine ctermfg=004'
+  else
+    exe 'hi! StatusLine ctermfg=006'
+  endif
+  return ''
+endfunction
+" Find out current buffer's size and output it.
+function! FileSize()
+  let bytes = getfsize(expand('%:p'))
+  if (bytes >= 1024)
+    let kbytes = bytes / 1024
+  endif
+  if (exists('kbytes') && kbytes >= 1000)
+    let mbytes = kbytes / 1000
+  endif
+  if bytes <= 0
+    return '0'
+  endif
+  if (exists('mbytes'))
+    return mbytes . 'MB '
+  elseif (exists('kbytes'))
+    return kbytes . 'KB '
+  else
+    return bytes . 'B '
+  endif
+endfunction
+function! ReadOnly()
+  if &readonly || !&modifiable
+    return ''
+  else
+    return ''
+endfunction
+set laststatus=2
+set statusline=
+set statusline+=%{ChangeStatuslineColor()}               " Changing the statusline color
+set statusline+=%0*\ %{mode()}   " Current mode
+set statusline+=%0*\ [%n]                                " buffernr
+set statusline+=%0*\ %<%F\ %{ReadOnly()}\ %m\ %w\        " File+path
+set statusline+=%#warningmsg#
+set statusline+=%*
+set statusline+=%0*\ %=                                  " Space
+set statusline+=%0*\ %y\                                 " FileType
+set statusline+=%0*\ %{(&fenc!=''?&fenc:&enc)}\[%{&ff}]\ " Encoding & Fileformat
+set statusline+=%0*\ %-3(%{FileSize()}%)                 " File size
+set statusline+=%0*\ %3p%%\ \ %l:\ %3c\                 " Rownumber/total (
+
+source ~/.vim-coc

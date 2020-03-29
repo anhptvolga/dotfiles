@@ -13,7 +13,7 @@ fi
 
 if [[ $ID = 'manjaro' ]]; then
     devel=(base-devel gcc gdb ninja make cmake perf kdiff3)
-    editor=(vim)
+    editor=(vim neovim)
     utils=(sudo zsh tmux tmuxp texlive-most ripgrep xclip)
 
     yes | sudo pacman -Sy --needed $devel $editor $utils
@@ -26,9 +26,8 @@ clone_repo() {
 
 setup_common() {
     mkdir ~/.history
-    # oh-my-zsh
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-    chsh -s /bin/zsh
+    git clone -b kpanic https://github.com/anhptvolga/zimfw.git ~/.zim
+    chsh -s =zsh
 }
 
 setup_ssh() {
@@ -39,14 +38,15 @@ setup_ssh() {
     touch ~/.ssh/authorized_keys
     chmod 600 ~/.ssh/authorized_keys
 }
-
+source ~/.zim/zimfw.zsh install
 setup_vim() {
     echo "Clone & setup vim"
     # vim
     VIMCONFIG='~/.vim'
     mkdir -p $VIMCONFIG/{pack,start}
     mkdir ~/.vimtmp
-    clone_repo https://github.com/k-takata/minpac.git $VIMCONFIG/pack/minpac/opt
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    ln -s ~/.vim/autoload/plug.vim ~/.local/share/nvim/site/autoload/plug.vim
 }
 
 setup_cpp_tdd() {
