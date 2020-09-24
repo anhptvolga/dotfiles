@@ -15,6 +15,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-eunuch'                                                           " Helpers for UNIX
 Plug 'romainl/vim-cool'                                                           " Search highlight more useful.
 Plug 'junegunn/vim-peekaboo'                                                      " Peek content of the registers
+Plug 'christoomey/vim-tmux-navigator'
 
 """ Code
 
@@ -36,6 +37,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'lervag/vimtex'
 Plug 'plasticboy/vim-markdown'
 
+" Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 Plug 'elzr/vim-json'
@@ -74,10 +76,12 @@ set wrap        "dont wrap lines
 set linebreak   "wrap lines at convenient points
 
 "default indent settings
+set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
 set autoindent
+autocmd Filetype yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 "folding settings
 set foldmethod=indent   "fold based on indent
@@ -175,9 +179,15 @@ let syntastic_stl_format = '[Syntax: %E{line:%fe }%W{#W:%w}%B{ }%E{#E:%e}]'
 let g:ctrlp_user_command = 'fd --type f --hidden --exclude .git'
 
 "nerdtree settings
+autocmd vimenter * NERDTree | wincmd p
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeMouseMode = 2
 let g:NERDTreeWinSize = 40
 let g:NERDTreeMinimalUI=1
+
+" replace
+map <leader>fr :%s///g<left><left>
+map <leader>frl :s///g<left><left>
 
 "explorer mappings
 nnoremap <f1> :BufExplorer<cr>
@@ -189,6 +199,9 @@ nnoremap <c-f> :CtrlP<cr>
 nnoremap <c-b> :CtrlPBuffer<cr>
 
 "ultisnips settings
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsListSnippets = "<c-s>"
 
 "source project specific config files
@@ -279,5 +292,13 @@ set statusline+=%0*\ %y\                                 " FileType
 set statusline+=%0*\ %{(&fenc!=''?&fenc:&enc)}\[%{&ff}]\ " Encoding & Fileformat
 set statusline+=%0*\ %-3(%{FileSize()}%)                 " File size
 set statusline+=%0*\ %3p%%\ \ %l:\ %3c\                 " Rownumber/total (
+
+" coc-python settings
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/bin/python3'
+
+let g:snips_author='kpanic'
+let g:snips_email='anhptvolga@yandex.ru'
+let g:snips_github='https://github.com/anhptvolga'
 
 source ~/.vim-coc
