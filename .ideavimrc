@@ -1,0 +1,80 @@
+set incsearch
+set hlsearch
+set ignorecase smartcase
+set scrolloff=5
+
+set showcmd     "show incomplete cmds down the bottom
+set showmode
+set relativenumber
+
+set expandtab
+set autoindent
+
+set commentary
+set surround
+set textobj-entire
+set ReplaceWithRegister
+
+set scrolloff=3
+set sidescrolloff=7
+set sidescroll=1"
+set idearefactormode=keep
+
+set system clipboard
+set clipboard=unnamed
+set clipboard+=ideaput
+
+" set some extensions
+set ideajoin
+set surround
+set multiple-cursors
+set commentary
+
+nnoremap zR :action ExpandAllRegions<cr>
+nnoremap [c :action VcsShowPrevChangeMarker<cr>
+nnoremap <leader>hp :action VcsShowPrevChangeMarker<cr>
+nnoremap ]c :action VcsShowNextChangeMarker<cr>
+nnoremap <leader>hu :action Vcs.RollbackChangedLines<cr>
+
+nnoremap [d :action QuickImplementations<cr>
+nnoremap ]d :action QuickImplementations<cr>
+
+nnoremap <leader><leader> :action SearchEverywhere<cr>
+nnoremap <leader>ff :action FindInPath<cr>
+nnoremap <leader>fu :action FindUsages<cr>
+nnoremap <leader>su :action ShowUsages<cr>
+nnoremap <leader>cv :action ChangeView<cr>
+nnoremap <leader>bb :action ToggleLineBreakpoint<cr>
+nnoremap <leader>br :action ViewBreakpoints<cr>
+
+nnoremap <leader>ic :action InspectCode<cr>
+nnoremap <leader>oi :action OptimizeImports<cr>
+nnoremap <leader>rn :action RenameElement<cr>
+nnoremap <leader>rf :action RenameFile<cr>
+
+nnoremap <leader>f :action ShowReformatFileDialog<CR>
+nnoremap <leader>fc :action ReformatCode<cr>
+
+nnoremap <leader>mv :action ActivateMavenProjectsToolWindow<cr>
+nnoremap <leader>dd :action Debug<cr>
+nnoremap <leader>dc :action ChooseDebugConfiguration<cr>
+nnoremap <leader>rr :action Run<cr>
+nnoremap <leader>rl :action RunClass<cr>
+nnoremap <leader>rc :action ChooseRunConfiguration<cr>
+nnoremap <leader>q  :action CloseActiveTab<cr>
+
+nnoremap <leader>ga :action GotoAction<cr>
+nnoremap <leader>gi :action GotoImplementation<cr>
+nnoremap <leader>gs :action GotoSuperMethod<cr>
+nnoremap <leader>gd :action GotoDeclaration<cr>
+nnoremap <leader>gt :action GotoTest<cr>
+nnoremap <leader>gr :action GotoRelated<cr>
+nnoremap <leader>gb :action Annotate<cr>
+
+nnoremap ]e :action GotoNextError<cr>
+nnoremap [e :action GotoPreviousError<cr> 
+
+nnoremap <esc><esc> :nohls<cr>
+
+map <leader>fr :%s///g<left><left>
+map <leader>frl :s///g<left><left>
