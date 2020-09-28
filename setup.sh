@@ -11,13 +11,15 @@ if [[ $ID != 'manjaro' || $ID_LIKE != 'arch' ]]; then
     echo "Just do some common setup!"
 fi
 
-if [[ $ID = 'manjaro' ]]; then
-    devel=(base-devel gcc gdb ninja make cmake perf kdiff3)
-    editor=(vim neovim)
-    utils=(sudo zsh tmux tmuxp texlive-most ripgrep xclip)
-
-    yes | sudo pacman -Sy --needed $devel $editor $utils
-fi
+install_depends() {
+    if [[ $ID = 'manjaro' ]]; then
+        devel=(base-devel gcc gdb ninja make cmake perf kdiff3 python3)
+        editor=(vim neovim)
+        utils=(sudo zsh tmux tmuxp ripgrep xclip curl fzf fd jq alacritty ctags bat)
+        sudo pacman -Sy --needed ${devel[@]} ${editor[@]} ${utils[@]}
+        sudo npm install -g fx
+    fi
+}
 
 clone_repo() {
     mkdir -p $2
@@ -26,8 +28,14 @@ clone_repo() {
 
 setup_common() {
     mkdir ~/.history
-    git clone -b kpanic https://github.com/anhptvolga/zimfw.git ~/.zim
+    curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
     chsh -s =zsh
+}
+
+cp_config_files() {
+    for file in .ideavimrc .config .editrc .gitattributes .gitconfig .gitignore_global .gitmsg.txt .inputrc .kutils .myclirc .tmux.conf .vim-coc .vimrc .zimrc; do
+        cp $file ~
+    done
 }
 
 setup_ssh() {
@@ -38,14 +46,13 @@ setup_ssh() {
     touch ~/.ssh/authorized_keys
     chmod 600 ~/.ssh/authorized_keys
 }
-source ~/.zim/zimfw.zsh install
+
 setup_vim() {
     echo "Clone & setup vim"
     # vim
     VIMCONFIG='~/.vim'
-    mkdir -p $VIMCONFIG/{pack,start}
-    mkdir ~/.vimtmp
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    mkdir -p ~/.local/share/nvim/site/autoload
     ln -s ~/.vim/autoload/plug.vim ~/.local/share/nvim/site/autoload/plug.vim
 }
 
@@ -68,10 +75,9 @@ set print pretty on'
     > ~/.gdbinit.local
 }
 
-
-
 #setup_common
 #setup_ssh
+cp_config_files
 #setup_vim
 #setup_cpp_tdd
 #setup_tools
