@@ -45,3 +45,5 @@
 	guitool = kdiff3
 [difftool "kdiff3"]
 	path = /usr/bin/kdiff3
+[pull]
+	rebase = false
