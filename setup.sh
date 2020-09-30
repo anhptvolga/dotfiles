@@ -13,12 +13,18 @@ fi
 
 install_depends() {
     if [[ $ID = 'manjaro' ]]; then
-        devel=(base-devel gcc gdb ninja make cmake perf kdiff3 python3)
+        devel=(base-devel gcc gdb ninja make cmake perf kdiff3 diff-so-fancy python3)
         editor=(vim neovim)
-        utils=(sudo zsh tmux tmuxp ripgrep xclip curl fzf fd jq alacritty ctags bat)
+        media=(pulseaudio pulseaudio-alsa pulseaudio-bluetooth)
+        utils=(sudo zsh tmux tmuxp ripgrep xclip curl fzf fd jq alacritty ctags bat tldr goldendict albert muparser)
         sudo pacman -Sy --needed ${devel[@]} ${editor[@]} ${utils[@]}
         sudo npm install -g fx
     fi
+}
+
+install_java() {
+    sudo pacman -Sy --needed jdk11-openjdk gradle maven
+    sudo archlinux-java set java-11-openjdk
 }
 
 clone_repo() {
