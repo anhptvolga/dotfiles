@@ -22,6 +22,10 @@ install_depends() {
     fi
 }
 
+install_python() {
+    sudo pacman -Sy --needed python3 python-virtualenv python-pylint yapf
+}
+
 install_java() {
     sudo pacman -Sy --needed jdk11-openjdk gradle maven
     sudo archlinux-java set java-11-openjdk

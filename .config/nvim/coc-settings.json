@@ -37,12 +37,10 @@
             "filetypes": ["elixir", "eelixir", "ex", "exs"]
         }
     },
-    "python.jediPath": "/usr/local/lib/python3.7/site-packages/",
+    "python.jediPath": "/usr/lib/python3.8/site-packages/",
     "python.formatting.provider": "yapf",
-    "python.formatting.yapfPath": "/usr/local/bin/yapf",
-    "python.formatting.autopep8Path": "/usr/local/bin/autopep8",
-    "python.linting.pylintEnabled": false,
-    "python.linting.flake8Enabled": true,
-    "python.linting.flake8Path": "/usr/local/bin/flake8",
-    "python.sortImports.path": "/usr/local/bin/isort"
+    "python.formatting.yapfPath": "/usr/bin/yapf",
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintPath": "/usr/bin/pylint",
+    "python.sortImports.path": "/usr/bin/isort"
 }
