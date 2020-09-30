@@ -17,7 +17,7 @@ install_depends() {
         editor=(vim neovim)
         media=(pulseaudio pulseaudio-alsa pulseaudio-bluetooth)
         utils=(sudo zsh tmux tmuxp ripgrep xclip curl fzf fd jq alacritty ctags bat tldr goldendict albert muparser)
-        sudo pacman -Sy --needed ${devel[@]} ${editor[@]} ${utils[@]}
+        sudo pacman -Sy --needed ${devel[@]} ${editor[@]} ${utils[@]} ${media[@]}
         sudo npm install -g fx
     fi
 }
