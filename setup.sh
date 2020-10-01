@@ -31,6 +31,13 @@ install_java() {
     sudo archlinux-java set java-11-openjdk
 }
 
+setup_tmux() {
+    TMUX_TEMP=~/.tmux
+    mkdir ~/.tmux
+    git clone https://github.com/tmux-plugins/tmux-resurrect ${TMUX_TEMP}/resurrect
+    git clone https://github.com/tmux-plugins/tmux-continuum ${TMUX_TEMP}/continuum
+}
+
 clone_repo() {
     mkdir -p $2
     git clone $1 $2
@@ -85,9 +92,10 @@ set print pretty on'
     > ~/.gdbinit.local
 }
 
+setup_tmux
 #setup_common
 #setup_ssh
-cp_config_files
+#cp_config_files
 #setup_vim
 #setup_cpp_tdd
 #setup_tools
