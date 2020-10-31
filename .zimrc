@@ -39,7 +39,7 @@ zmodule zsh-users/zsh-syntax-highlighting
 zmodule zsh-users/zsh-history-substring-search
 # }}} End configuration added by Zim install
 
-zmodule homebrew
+zmodule pacman
 zmodule djui/alias-tips
 zmodule junegunn/fzf -s shell/completion.zsh -s shell/key-bindings.zsh
 zmodule wfxr/forgit
