@@ -1,0 +1,27 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+import re
+import sys
+import docker
+from pgcli.main import cli
+
+if __name__ == '__main__':
+
+    client = docker.from_env()
+    containers = client.containers.list()
+    images = list(
+        filter(lambda x: x.image.tags[0].startswith('postgres'),
+               client.containers.list()))
+    if not images:
+        print('No postgres container')
+    if len(images) > 1:
+        print('Multi postgres containers')
+
+    host, port = images[0].ports.popitem()[1][0].values()
+    sys.argv.extend(
+        ['-p',
+         str(port), '-h',
+         str(host), '-U', 'test', '-W', 'test', 'test'])
+
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(cli())
