@@ -1,3 +1,4 @@
+let mapleader=" "
 set incsearch
 set hlsearch
 set ignorecase smartcase
@@ -10,6 +11,7 @@ set relativenumber
 set expandtab
 set autoindent
 
+set NERDTree
 set commentary
 set surround
 set textobj-entire
@@ -36,32 +38,29 @@ nnoremap <leader>hp :action VcsShowPrevChangeMarker<cr>
 nnoremap ]c :action VcsShowNextChangeMarker<cr>
 nnoremap <leader>hu :action Vcs.RollbackChangedLines<cr>
 
-nnoremap [d :action QuickImplementations<cr>
-nnoremap ]d :action QuickImplementations<cr>
-
+" Find
 nnoremap <leader><leader> :action SearchEverywhere<cr>
-nnoremap <leader>ff :action FindInPath<cr>
+nnoremap <leader>fa :action FindInPath<cr>
 nnoremap <leader>fu :action FindUsages<cr>
 nnoremap <leader>su :action ShowUsages<cr>
 nnoremap <leader>cv :action ChangeView<cr>
-nnoremap <leader>bb :action ToggleLineBreakpoint<cr>
-nnoremap <leader>br :action ViewBreakpoints<cr>
+nnoremap <leader>cz :action ToggleZenMode<cr>
+nnoremap <esc><esc> :nohls<cr>
 
-nnoremap <leader>ic :action InspectCode<cr>
-nnoremap <leader>oi :action OptimizeImports<cr>
+" Edit
+nnoremap <leader>gc :action Generate<cr>
+nnoremap <leader>nc :action NewClass<cr>
 nnoremap <leader>rn :action RenameElement<cr>
 nnoremap <leader>rf :action RenameFile<cr>
 
-nnoremap <leader>f :action ShowReformatFileDialog<CR>
-nnoremap <leader>fc :action ReformatCode<cr>
+" Replace
+vnoremap <leader>fr "hy:%s/<C-r>h//gc<left><left><left>
 
-nnoremap <leader>mv :action ActivateMavenProjectsToolWindow<cr>
-nnoremap <leader>dd :action Debug<cr>
-nnoremap <leader>dc :action ChooseDebugConfiguration<cr>
-nnoremap <leader>rr :action Run<cr>
-nnoremap <leader>rl :action RunClass<cr>
-nnoremap <leader>rc :action ChooseRunConfiguration<cr>
-nnoremap <leader>q  :action CloseActiveTab<cr>
+" Navigate
+nnoremap [d :action QuickImplementations<cr>
+nnoremap ]d :action QuickImplementations<cr>
+nnoremap ]e :action GotoNextError<cr>
+nnoremap [e :action GotoPreviousError<cr>
 
 nnoremap <leader>ga :action GotoAction<cr>
 nnoremap <leader>gi :action GotoImplementation<cr>
@@ -71,10 +70,56 @@ nnoremap <leader>gt :action GotoTest<cr>
 nnoremap <leader>gr :action GotoRelated<cr>
 nnoremap <leader>gb :action Annotate<cr>
 
-nnoremap ]e :action GotoNextError<cr>
-nnoremap [e :action GotoPreviousError<cr> 
+noremap <C-o> :action Back<cr>
+noremap <C-i> :action Forward<cr>
 
-nnoremap <esc><esc> :nohls<cr>
+nnoremap <C-n> :action SearchEverywhere.NavigateToNextGroup<cr>
+nnoremap <C-p> :action SearchEverywhere.NavigateToPrevGroup<cr>
 
-map <leader>fr :%s///g<left><left>
-map <leader>frl :s///g<left><left>
+nnoremap <C-2> :action ExpandAllToLevel2<cr>
+nnoremap <C-3> :action ExpandAllToLevel3<cr>
+
+" Format
+nnoremap <leader>fs :action ShowReformatFileDialog<cr>
+nnoremap <leader>ff :action ReformatCode<cr>
+vnoremap <leader>ss :action StringManipulation.Sort<cr>
+
+" Refactor
+nnoremap <leader>rq :action Refactorings.QuickListPopupAction<cr>
+vnoremap <C-t> :action Refactorings.QuickListPopupAction<cr>
+nnoremap <leader>ic :action InspectCode<cr>
+nnoremap <leader>oi :action OptimizeImports<cr>
+
+" Build
+nnoremap <leader>bm :action BuildMenu<cr>
+
+" Running
+nnoremap <leader>mv :action ActivateMavenProjectsToolWindow<cr>
+nnoremap <leader>dd :action Debug<cr>
+nnoremap <leader>dc :action ChooseDebugConfiguration<cr>
+nnoremap <leader>dl :action DebugClass<cr>
+nnoremap <leader>rr :action Run<cr>
+nnoremap <leader>rl :action RunClass<cr>
+nnoremap <leader>st :action Stop<cr>
+nnoremap <leader>rc :action ChooseRunConfiguration<cr>
+nnoremap <leader>bb :action ToggleLineBreakpoint<cr>
+nnoremap <leader>br :action ViewBreakpoints<cr>
+
+" Windows
+nnoremap <leader>q  :action CloseContent<cr>
+nnoremap <leader><Space>  :action FileStructurePopup<cr>
+
+nnoremap <leader>mp :action ManageRecentProjects<cr>
+nnoremap <leader>cp :action CloseProject<cr>
+
+nnoremap <C-1> :action SelectInProjectView<cr>
+
+nnoremap <C-S-=> :action SplitVertically<cr>
+nnoremap <C-S--> :action SplitHorizontally<cr>
+
+nnoremap <leader>grd :action Git.ResolveConflicts<cr>
+nnoremap <leader>gpr :action Github.View.Pull.Request<cr>
+
+
+nnoremap <leader>aa :action IdeaVim.ReloadVimRc.reload<cr>
+nnoremap <leader>ca :%y+<cr>
