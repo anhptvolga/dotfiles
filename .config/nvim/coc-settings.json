@@ -1,46 +1,65 @@
 {
-    "languageserver": {
-        "ccls": {
-            "command": "ccls",
-            "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
-            "rootPatterns": [".ccls-root", "compile_commands.json"],
-            "initializationOptions": {
-                "cache": {
-                    "directory": ".ccls-cache"
-                },
-                "clang": {
-                    // make sure you have installed commandLineTools
-                    "resourceDir": "/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0",
-                    "extraArgs": [
-                        "-isystem",
-                        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1",
-                        "-I",
-                        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/"
-                    ]
-                }
-            }
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+      "rootPatterns": [".ccls-root", "compile_commands.json"],
+      "initializationOptions": {
+        "cache": {
+          "directory": ".ccls-cache"
         },
-        "cmake": {
-            "command": "cmake-language-server",
-            "filetypes": ["cmake"],
-            "rootPatterns": [
-                "build/",
-                "cmake-build-debug",
-                "cmake-build-release"
-            ],
-            "initializationOptions": {
-                "buildDirectory": "cmake-build-debug"
-            }
-        },
-        "elixirLS": {
-            "command": "/Users/lap01031/.elixir-ls/release/language_server.sh",
-            "filetypes": ["elixir", "eelixir", "ex", "exs"]
+        "clang": {
+          // make sure you have installed commandLineTools
+          "resourceDir": "/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0",
+          "extraArgs": [
+            "-isystem",
+            "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1",
+            "-I",
+            "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/"
+          ]
         }
+      }
     },
-    "python.jediPath": "/usr/lib/python3.8/site-packages/",
-    "python.formatting.provider": "yapf",
-    "python.formatting.yapfPath": "/usr/bin/yapf",
-    "python.linting.pylintEnabled": true,
-    "python.linting.pylintPath": "/usr/bin/pylint",
-    "python.sortImports.path": "/usr/bin/isort"
+    "cmake": {
+      "command": "cmake-language-server",
+      "filetypes": ["cmake"],
+      "rootPatterns": ["build/", "cmake-build-debug", "cmake-build-release"],
+      "initializationOptions": {
+        "buildDirectory": "cmake-build-debug"
+      }
+    },
+    "elixirLS": {
+      "command": "/Users/lap01031/.elixir-ls/release/language_server.sh",
+      "filetypes": ["elixir", "eelixir", "ex", "exs"]
+    },
+    "lua": {
+      "command": "/home/kpanic/.luarocks/bin/lua-lsp",
+      "filetypes": ["lua"]
+    }
+  },
+  // python
+  "python.jediPath": "/home/kpanic/.local/lib/python3.8/site-packages",
+  "python.formatting.provider": "yapf",
+  "python.formatting.yapfPath": "/usr/bin/yapf",
+  "python.linting.pylintEnabled": true,
+  "python.linting.pylintPath": "/usr/bin/pylint",
+  "python.linting.pylintArgs": ["--rcfile", "~/.pylintrc", "-d", "C0411"],
+  "python.sortImports.path": "/usr/bin/isort",
+
+  // emmet
+  "emmet.includeLanguages": {
+    "vue-html": "html",
+    "javascript": "javascriptreact"
+  },
+
+  // coc-explorer
+  "explorer.width": 30,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": false,
+  "explorer.icon.enableVimDevicons": false,
+  "explorer.file.showHiddenFiles": false,
+  "explorer.keyMappings.global": {
+    "<cr>": ["expandable?", "expand", "open"],
+    "v": "open:vsplit"
+  }
 }
