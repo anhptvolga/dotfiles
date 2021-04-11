@@ -44,6 +44,7 @@ nnoremap <leader>fa :action FindInPath<cr>
 nnoremap <leader>fu :action FindUsages<cr>
 nnoremap <leader>su :action ShowUsages<cr>
 nnoremap <leader>cv :action ChangeView<cr>
+nnoremap <leader>cc :action ToggleFullScreen<cr>
 nnoremap <leader>cz :action ToggleZenMode<cr>
 nnoremap <esc><esc> :nohls<cr>
 
@@ -104,6 +105,7 @@ nnoremap <leader>st :action Stop<cr>
 nnoremap <leader>rc :action ChooseRunConfiguration<cr>
 nnoremap <leader>bb :action ToggleLineBreakpoint<cr>
 nnoremap <leader>br :action ViewBreakpoints<cr>
+nnoremap <leader>ev :action EvaluateExpression<cr>
 
 " Windows
 nnoremap <leader>q  :action CloseContent<cr>

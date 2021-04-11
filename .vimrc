@@ -5,6 +5,7 @@ call plug#begin('~/.vim/plugged')
 
 """ Tools
 
+Plug 'moll/vim-bbye'
 Plug 'godlygeek/tabular'                                                          " Text filtering and alignment
 Plug 'yegappan/mru'
 Plug 'terryma/vim-multiple-cursors'
@@ -16,6 +17,7 @@ Plug 'tpope/vim-eunuch'                                                         
 Plug 'romainl/vim-cool'                                                           " Search highlight more useful.
 Plug 'junegunn/vim-peekaboo'                                                      " Peek content of the registers
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'voldikss/vim-floaterm'
 
 """ Code
 
@@ -37,13 +39,22 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'lervag/vimtex'
 Plug 'plasticboy/vim-markdown'
 
-" Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 Plug 'elzr/vim-json'
 
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+Plug 'mlaursen/vim-react-snippets'
+
+" python
+Plug 'relastle/vim-nayvy'
+
 " Elixir
-Plug 'elixir-editors/vim-elixir'
+" Plug 'elixir-editors/vim-elixir'
 " Plug 'slashmili/alchemist.vim'
 " Plug 'c-brenn/phoenix.vim'
 " Plug 'tpope/vim-projectionist'
@@ -82,6 +93,7 @@ set softtabstop=4
 set expandtab
 set autoindent
 autocmd Filetype yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 "folding settings
 set foldmethod=indent   "fold based on indent
@@ -228,7 +240,6 @@ let g:tex_flavor = "latex"
 "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-vmap '' :w !pbcopy<CR><CR>
 
 autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
 autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
@@ -294,11 +305,66 @@ set statusline+=%0*\ %-3(%{FileSize()}%)                 " File size
 set statusline+=%0*\ %3p%%\ \ %l:\ %3c\                 " Rownumber/total (
 
 " coc-python settings
-let g:python_host_prog = '/usr/bin/python'
+let g:python_host_prog = '/usr/bin/python3'
 let g:python3_host_prog = '/usr/bin/python3'
 
 let g:snips_author='kpanic'
 let g:snips_email='anhptvolga@yandex.ru'
 let g:snips_github='https://github.com/anhptvolga'
+autocmd FileType python let b:coc_root_patterns = ['.git']
+
+"
+" copy tricks
+"
+vmap '' :w !xclip -i -sel clip<CR><CR>
+vnoremap <C-c> "+y
+vmap <C-y> :%y+<CR><CR>
+
+"" thefullsnack
+function! OpenFloatTerm()
+  let height = float2nr((&lines - 2) / 1.5)
+  let row = float2nr((&lines - height) / 2)
+  let width = float2nr(&columns / 1.5)
+  let col = float2nr((&columns - width) / 2)
+  " Border Window
+  let border_opts = {
+    \ 'relative': 'editor',
+    \ 'row': row - 1,
+    \ 'col': col - 2,
+    \ 'width': width + 4,
+    \ 'height': height + 2,
+    \ 'style': 'minimal'
+    \ }
+  let border_buf = nvim_create_buf(v:false, v:true)
+  let s:border_win = nvim_open_win(border_buf, v:true, border_opts)
+  " Main Window
+  let opts = {
+    \ 'relative': 'editor',
+    \ 'row': row,
+    \ 'col': col,
+    \ 'width': width,
+    \ 'height': height,
+    \ 'style': 'minimal'
+    \ }
+  let buf = nvim_create_buf(v:false, v:true)
+  let win = nvim_open_win(buf, v:true, opts)
+  terminal
+  startinsert
+  " Hook up TermClose event to close both terminal and border windows
+  autocmd TermClose * ++once :q | call nvim_win_close(s:border_win, v:true)
+endfunction
+
+nnoremap <leader>ot :FloatermNew<CR>
+nnoremap <Leader>q :Bdelete<CR>
+
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+let g:nayvy_coc_completion_icon='✡ nayvy'
 
 source ~/.vim-coc
