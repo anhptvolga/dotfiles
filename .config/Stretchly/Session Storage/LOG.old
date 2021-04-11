@@ -1,0 +1,4 @@
+2021/04/10-11:33:01.901 5aa Reusing MANIFEST /home/kpanic/.config/Stretchly/Session Storage/MANIFEST-000001
+2021/04/10-11:33:01.901 5aa Recovering log #3
+2021/04/10-11:33:01.903 5aa (ignoring error) /home/kpanic/.config/Stretchly/Session Storage/000003.log: dropping 1242 bytes; Corruption: checksum mismatch
+2021/04/10-11:33:01.903 5aa Reusing old log /home/kpanic/.config/Stretchly/Session Storage/000003.log 

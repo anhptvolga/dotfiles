@@ -1,0 +1,4 @@
+2021/04/10-11:33:33.344 2260 Reusing MANIFEST /home/kpanic/.config/Stretchly/Session Storage/MANIFEST-000001
+2021/04/10-11:33:33.344 2260 Recovering log #3
+2021/04/10-11:33:33.345 2260 (ignoring error) /home/kpanic/.config/Stretchly/Session Storage/000003.log: dropping 1261 bytes; Corruption: checksum mismatch
+2021/04/10-11:33:33.345 2260 Reusing old log /home/kpanic/.config/Stretchly/Session Storage/000003.log 

@@ -1,0 +1,26 @@
+[
+    {
+        "iconPath": ":google",
+        "name": "Google",
+        "trigger": "gg ",
+        "url": "https://www.google.com/search?q=%s"
+    },
+    {
+        "iconPath": "/home/kpanic/.config/albert/org.albert.extension.websearch/{f46372f0-f2f6-4baf-a4fd-61d52b9f65ed}.",
+        "name": "Youtube",
+        "trigger": "yo  ",
+        "url": "https://www.youtube.com/results?search_query=%s"
+    },
+    {
+        "iconPath": ":github",
+        "name": "GitHub",
+        "trigger": "gh ",
+        "url": "https://github.com/search?utf8=✓&q=%s"
+    },
+    {
+        "iconPath": "/home/kpanic/.config/albert/org.albert.extension.websearch/{431685d0-dc72-41e9-93cc-649fa61ea737}.",
+        "name": "PostgreSQL doc search",
+        "trigger": "pg ",
+        "url": "https://www.postgresql.org/search/?u=%2Fdocs%2F11%2F&q=%s"
+    }
+]
