@@ -1,0 +1,50 @@
+[user]
+	email = anhptvolga@yandex.ru
+	name = kpanic
+	signingkey = AC08D62AE7E5F9D9
+[alias]
+	br = branch
+	co = checkout
+	ci = commit
+	cf = config
+	st = status
+	rb = rebase
+	rs = reset
+	mg = merge
+	df = diff --color=auto
+	dfch = diff --color=auto --check
+	dfst = diff --color=auto --staged
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	hist = log --pretty=format:\"%Cred%h %Creset%ad | %Cblue%s%Cgreen%d %Creset[%an]\" --graph --date=short
+	histall = log --pretty=format:\"%Cred%h %Creset%ad | %Cblue%s%Cgreen%d %Creset[%an]\" --graph --date=short --all
+	longhist = log --pretty=format:\"%Cred%h %Creset%ad | %Cblue%s%b%Cgreen%d %Creset[%an]\" --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
+[push]
+	default = matching
+[core]
+	filemode = false
+	autocrlf = false
+	whitespace = no-trailing-space,space-before-tab,cr-at-eol
+	editor = nvim
+	excludesfile = ~/.gitignore_global
+	attributesfile = ~/.gitattributes
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[color]
+	ui = auto
+[rerere]
+	enabled = true
+[commit]
+	template = ~/.gitmsg.txt
+#[filter "indent"]
+	# clean = indent
+	# smudge = cat
+[merge]
+	tool = kdiff3
+[diff]
+	guitool = kdiff3
+[difftool "kdiff3"]
+	path = /usr/bin/kdiff3
+[pull]
+	rebase = false

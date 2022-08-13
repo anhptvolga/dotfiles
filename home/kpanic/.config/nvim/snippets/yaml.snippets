@@ -1,0 +1,47 @@
+snippet uuid "Swagger UUID" b
+${1}:
+  type: string
+  format: uuid
+  example: `uuidgen -t`
+endsnippet
+
+snippet arr "Swagger array" b
+${1}:
+  type: array
+  items:
+    ${0}
+endsnippet
+
+snippet obj "Swagger object" b
+${1}:
+  type: object
+  properties:
+    $0
+endsnippet
+
+snippet get "Swagger get" b
+get:
+  summary: ${1}
+  tags:
+    - ${2}
+  security:
+    - BearerAuth: []
+  responses:
+    200:
+      ${3}
+endsnippet
+
+snippet post "Swagger post" b
+post:
+  summary: ${1}
+  tags:
+    - ${2}
+  security:
+    - BearerAuth: []
+  requestBody:
+    ${3}
+  responses:
+    200:
+      ${4}
+endsnippet
+

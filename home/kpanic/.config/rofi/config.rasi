@@ -1,0 +1,9 @@
+/** Basic config file **/
+
+configuration {
+  show-icons:       true;
+  icon-theme:       "Papirus";
+  modi:             [window,drun,combi];
+  combi-modi:      [window,drun];
+}
+@theme "/usr/share/rofi/themes/arthur.rasi"

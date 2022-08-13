@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Bitwarden rofi
+Comment=Bitwarden rofi
+Exec="/home/kpanic/.local/bin/bwmenu"
+Path=
+Type=Application
+Categories=Network
+Terminal=false

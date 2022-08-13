@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=rofi monitor layout
+Comment=rofi monitor layout
+Exec="/home/kpanic/.local/bin/rofi-monitor-layout.sh"
+Type=Application
+Categories=Ultilities
+Terminal=false

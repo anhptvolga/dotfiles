@@ -2,16 +2,12 @@
 
 isync() {
     procs=`expr $(nproc) \* 2`
-    des=$1
-    shift 1
-    printf "%s\n" $@ | xargs -P$procs -I_ bash -c "rsync -a _ $des/_"
+    printf "%s\n" $@ | xargs -P$procs -I_ bash -c "rsync -a --relative _ ."
 }
 
-# ~/.config/!awesome \
 
-isync .config \
- \
-~/.config/alacritty \
+isync ~/.config/alacritty \
+~/.config/awesome \
 ~/.config/autostart \
 ~/.config/bat \
 ~/.config/coc/extensions/package.json \
@@ -27,9 +23,8 @@ isync .config \
 ~/.config/redshift \
 ~/.config/rofi \
 ~/.config/libinput-gestures.conf \
-~/.config/mimeapps.list
-
-isync .local \
+~/.config/mimeapps.list \
+ \
 ~/.local/share/applications/wifi.desktop \
 ~/.local/share/applications/monitor.desktop \
 ~/.local/share/applications/bitwarden.desktop \
@@ -40,9 +35,8 @@ isync .local \
 ~/.local/bin/rofi-wifi.sh \
 ~/.local/bin/rofi-network.sh \
 ~/.local/bin/rofi-monitor-layout.sh \
-~/.local/bin/generate.sh 
-
-isync home \
+~/.local/bin/generate.sh \
+ \
 ~/.gitattributes \
 ~/.gitconfig \
 ~/.gitignore_global \

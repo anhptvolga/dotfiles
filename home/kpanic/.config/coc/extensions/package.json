@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "coc-explorer": ">=0.18.19",
+    "coc-flutter": ">=1.9.6",
+    "coc-lua": ">=1.0.1"
+  }
+}

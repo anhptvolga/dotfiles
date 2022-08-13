@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=unclutter
+GenericName=unclutte
+Type=Application
+Terminal=false
+Exec="/usr/bin/unclutter"
