@@ -11,7 +11,7 @@ text/html=firefox.desktop;
 x-scheme-handler/chrome=firefox.desktop;
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
-x-scheme-handler/tg=userapp-Telegram Desktop-KRCP90.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-KRCP90.desktop;userapp-Telegram Desktop-C5F1Q1.desktop;
 application/json=org.xfce.mousepad.desktop;
 
 [Default Applications]
@@ -27,4 +27,4 @@ x-scheme-handler/chrome=firefox.desktop;
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
 x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
-x-scheme-handler/tg=userapp-Telegram Desktop-KRCP90.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-C5F1Q1.desktop

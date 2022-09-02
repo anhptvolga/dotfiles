@@ -34,7 +34,7 @@ case $chosen in
         ;;
     $area)
 		if [[ -f /usr/bin/scrot ]]; then
-			scrot -s 'Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'
+			scrot -s '/tmp/Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'xclip -selection clipboard -t image/png -i $f'
 		else
 			msg
 		fi

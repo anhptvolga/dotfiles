@@ -18,7 +18,8 @@ env:
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  TERM: xterm-256color
+  # TERM: xterm-256color
+  TERM: tmux-256color
   # TERM: alacritty
   WINIT_X11_SCALE_FACTOR: "1"
 
@@ -386,14 +387,14 @@ colors:
   # When set to `true`, selected text will be copied to the primary clipboard.
   #save_to_clipboard: false
 
-#cursor:
+cursor:
   # Cursor style
   #
   # Values for `style`:
   #   - ▇ Block
   #   - _ Underline
   #   - | Beam
-  #style: Block
+  style: Beam
 
   # Vi mode cursor style
   #
@@ -401,7 +402,7 @@ colors:
   # the style of the active value of the normal cursor.
   #
   # See `cursor.style` for available options.
-  #vi_mode_style: None
+  vi_mode_style: Beam
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.

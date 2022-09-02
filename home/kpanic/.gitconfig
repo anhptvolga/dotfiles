@@ -1,7 +1,7 @@
 [user]
 	email = anhptvolga@yandex.ru
 	name = kpanic
-	signingkey = AC08D62AE7E5F9D9
+	signingkey = 7B9A981ADD2FF46D
 [alias]
 	br = branch
 	co = checkout

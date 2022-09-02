@@ -15,7 +15,7 @@ if [ "$VALID_ARGUMENTS" != "0" ]; then
 fi
 echo $PARSED_ARGUMENTS
 eval set -- "$PARSED_ARGUMENTS"
-PG_VERSION=13.0
+PG_VERSION=14.0
 while :
 do
   case "$1" in
