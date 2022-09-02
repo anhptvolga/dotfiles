@@ -1,0 +1,30 @@
+yay -S --nocleanmenu --nodiffmenu --noupgrademenu --noeditmenu --noconfirm \
+    diff-so-fancy \
+    tmux \
+    ttf-hack \
+    ripgrep \
+    fasd \
+    bat \
+    wmname \
+    rofi \
+    jdk17-openjdk \
+    openjdk17-doc \
+    openjdk17-src \
+    maven
+
+dex
+nm-connection-editor
+
+xclip
+pulsemixer
+fd
+bitwarden-cli
+yq
+network-manager-applet
+kubectl
+ pulseaudio-bluetooth pulseaudio-equalizer
+github-cli
+pipewire-pulse
+upower
+pipewire-pulse
+unclutter

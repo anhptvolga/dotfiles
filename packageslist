@@ -1,60 +1,68 @@
+
+curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
+
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+sudo pacman -S go
+
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 cd -
 rm -rf yay
 
-yay -Ss --nocleanmenu --nodiffmenu --noupgrademenu --noeditmenu --noconfirm \
-unicode-emoji \
-jetbrains-toolbox \
-libinput-gestures \
-brave-bin \
-pgcli \
-telegram-desktop-bin \
-pgmodeler \
-binance \
-stretchly \
-megasync \
-green-tunnel-bin \
-npm \
-nodejs \
-yarn \
-postgresql \
-ibus \
-docker \
-docker-compose \
-bluez bluez-utils \
-wmctrl xdotool \
-sysstat \
-dnsutils \
-openssh \
-openvpn \
-networkmanager-openvpn \
-htop \
-tldr \
-zip \
-unzip \
-blueman \
-redshift \
-acpi \
-openjdk11-src \
-openjdk11-doc \
-tree \
-copyq \
-gnome-keyring \
-xf86-video-intel \
-vulkan-intel  \
-foliate \
-zathura \
-discord \
-zathura-pdf-mupdf \
-cpupower \
-x86_energy_perf_policy \
-ranger \
-ueberzug \
-inetutils \
-k9s \
-stern
-
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/BambooEngine/ibus-bamboo/master/archlinux/install.sh)"
+
+yay -S --nocleanmenu --nodiffmenu --noupgrademenu --noeditmenu --noconfirm \
+    unicode-emoji \
+    jetbrains-toolbox \
+    libinput-gestures \
+    brave-bin \
+    pgcli \
+    telegram-desktop-bin \
+    pgmodeler \
+    binance \
+    stretchly \
+    megasync \
+    green-tunnel-bin \
+    npm \
+    nodejs \
+    yarn \
+    postgresql \
+    ibus \
+    docker \
+    docker-compose \
+    bluez bluez-utils \
+    wmctrl xdotool \
+    sysstat \
+    dnsutils \
+    openssh \
+    openvpn \
+    networkmanager-openvpn \
+    htop \
+    tldr \
+    zip \
+    unzip \
+    blueman \
+    redshift \
+    acpi \
+    openjdk11-src \
+    openjdk11-doc \
+    tree \
+    copyq \
+    gnome-keyring \
+    xf86-video-intel \
+    vulkan-intel  \
+    foliate \
+    zathura \
+    discord \
+    zathura-pdf-mupdf \
+    cpupower \
+    x86_energy_perf_policy \
+    ranger \
+    ueberzug \
+    inetutils \
+    k9s \
+    stern
 
