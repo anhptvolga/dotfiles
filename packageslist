@@ -23,8 +23,6 @@ yay -S --nocleanmenu --nodiffmenu --noupgrademenu --noeditmenu --noconfirm \
     telegram-desktop-bin \
     pgmodeler \
     binance \
-    stretchly \
-    megasync \
     green-tunnel-bin \
     npm \
     nodejs \
@@ -64,5 +62,9 @@ yay -S --nocleanmenu --nodiffmenu --noupgrademenu --noeditmenu --noconfirm \
     ueberzug \
     inetutils \
     k9s \
-    stern
+    stern \
+    autorandr \
+    scrot
+
+#    megasync
 

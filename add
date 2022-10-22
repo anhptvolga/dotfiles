@@ -1,4 +1,4 @@
-yay -S --nocleanmenu --nodiffmenu --noupgrademenu --noeditmenu --noconfirm \
+yay -S \
     diff-so-fancy \
     tmux \
     ttf-hack \
@@ -10,21 +10,21 @@ yay -S --nocleanmenu --nodiffmenu --noupgrademenu --noeditmenu --noconfirm \
     jdk17-openjdk \
     openjdk17-doc \
     openjdk17-src \
-    maven
-
-dex
-nm-connection-editor
-
-xclip
-pulsemixer
-fd
-bitwarden-cli
-yq
-network-manager-applet
-kubectl
- pulseaudio-bluetooth pulseaudio-equalizer
+    maven \
+unclutter \
+xclip \
+bitwarden-cli \
+fd \
+yq \
+kubectl \
 github-cli
-pipewire-pulse
-upower
-pipewire-pulse
-unclutter
+
+#pulsemixer
+#pulseaudio-bluetooth pulseaudio-equalizer
+#pipewire-pulse
+#upower
+#pipewire-pulse
+#dex
+#nm-connection-editor
+#network-manager-applet
+
